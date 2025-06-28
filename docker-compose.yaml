@@ -46,7 +46,6 @@ services:
     # The following blocks if you want to use MySQL and phpMyAdmin
     # Comment or uncomment if you want to use MySQL or not
     # =========================
-
     mysql:
         image: mysql:8.0
         container_name: ${MYSQL_CONTAINER_NAME}
@@ -157,13 +156,13 @@ services:
     #         - postgresql
 
 volumes:
-    my_project_nginx_mysqldata:
+    my_laravel_nginx_mysqldata:
         driver: local
-    # my_project_nginx_postgresqldata:
+    # my_laravel_nginx_postgresqldata:
     #     driver: local
 
 # Uncomment if you want to use an external network to share between services or connect to an external database
 # networks:
 #   default:
-#     name: my_project_network_nginx
+#     name: my_laravel_network_nginx
 #     external: true
