@@ -78,7 +78,7 @@
 
 ```bash
 # Clonar el repositorio
-git clone <tu-repositorio>
+git clone https://github.com/Jsriv22/docker-laravel-nginx-mysql-postgres.git
 cd docker-laravel-nginx-mysql-postgres
 
 # Construir e iniciar contenedores
@@ -405,7 +405,7 @@ docker exec -it my-project-nginx-app composer format
 | Categoría | Herramienta | Propósito |
 |-----------|-------------|-----------|
 | **💻 IDE** | [PhpStorm](https://www.jetbrains.com/phpstorm/) / [VS Code](https://code.visualstudio.com/) | Edición de código |
-| **🗄️ Base de Datos** | [TablePlus](https://tableplus.com/) / [Sequel Pro](https://www.sequelpro.com/) | Gestión de BD |
+| **🗄️ Base de Datos** | [TablePlus](https://tableplus.com/) / [Dbeaver](https://dbeaver.io/) | Gestión de BD |
 | **🌐 Testing API** | [Postman](https://www.postman.com/) / [Insomnia](https://insomnia.rest/) | Desarrollo de APIs |
 | **📊 Git GUI** | [GitHub Desktop](https://desktop.github.com/) / [Sourcetree](https://www.sourcetreeapp.com/) | Control de versiones |
 
