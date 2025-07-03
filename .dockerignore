@@ -1,0 +1,54 @@
+# .dockerignore - Optimiza builds de Docker excluyendo archivos innecesarios
+
+# =========================
+# CRITICAL - Significantly reduces build time
+# =========================
+
+# Node.js dependencies (reinstalled in Dockerfile)
+node_modules/
+
+# PHP dependencies (reinstalled with composer)
+vendor/
+
+# Laravel temporary/cache files
+storage/app/*
+!storage/app/.gitignore
+storage/framework/cache/*
+!storage/framework/cache/.gitignore
+storage/framework/sessions/*
+!storage/framework/sessions/.gitignore
+storage/framework/testing/*
+!storage/framework/testing/.gitignore
+storage/framework/views/*
+!storage/framework/views/.gitignore
+storage/logs/*
+!storage/logs/.gitignore
+bootstrap/cache/*
+!bootstrap/cache/.gitignore
+
+# =========================
+# OPTIONAL - Reduces image size
+# =========================
+
+# Git
+.git
+.gitignore
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Testing artifacts
+.phpunit.result.cache
+coverage/
+
+# Environment backups
+.env.local
+.env.*.local
+.env.backup

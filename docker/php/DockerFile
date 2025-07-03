@@ -1,5 +1,10 @@
 FROM php:8.4-fpm
 
+# Install Node.js and npm
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
+    && apt-get install -y nodejs
+
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     git \
     curl \
@@ -20,8 +25,38 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install mysqli pdo pdo_mysql pdo_pgsql pgsql intl mbstring exif pcntl soap xml zip \
     && pecl install xdebug \
     && docker-php-ext-enable xdebug \
-    && apt-get clean
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
+# Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# Set working directory
 WORKDIR /var/www
+
+# Copy composer files first (for better caching)
+COPY composer.json composer.lock ./
+
+# ✅ CORREGIDO: Sin --no-dev para desarrollo + sin --no-scripts
+RUN composer install --optimize-autoloader --no-interaction --no-progress --no-scripts
+
+# Copy package.json and package-lock.json (for better caching)
+COPY package.json package-lock.json ./
+
+# ✅ MANTENER: npm ci es correcto para builds reproducibles
+RUN npm ci
+
+# Copy the rest of the application
+COPY . .
+
+# ✅ AGREGAR: Dar permisos al script de inicialización
+RUN chmod +x /var/www/docker/php/init.sh
+
+# Complete the composer installation with scripts
+RUN composer run-script post-autoload-dump
+
+# ✅ CORREGIDO: Solo crear directorios, NO permisos aquí
+RUN mkdir -p storage/logs storage/framework/cache storage/framework/sessions storage/framework/testing storage/framework/views bootstrap/cache
+
+# Expose port for Vite dev server
+EXPOSE 5173
