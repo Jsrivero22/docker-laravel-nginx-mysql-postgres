@@ -453,6 +453,5 @@ docker exec -it my-project-nginx-app composer format
 *Este stack está optimizado para velocidad de desarrollo y listo para producción*
 
 [![License: MIT](https://img.shields.io/badge/Licencia-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![PRs Welcome](https://img.shields.io/badge/PRs-bienvenidos-brightgreen.svg?style=for-the-badge)](http://makeapullrequest.com)
 
 </div>
