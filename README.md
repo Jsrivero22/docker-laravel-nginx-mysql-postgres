@@ -79,7 +79,7 @@
 
 ```bash
 # Clone the repository
-git clone <your-repository>
+git clone https://github.com/Jsrivero22/docker-laravel-nginx-mysql-postgres.git
 cd docker-laravel-nginx-mysql-postgres
 
 # Build and start containers
@@ -406,7 +406,7 @@ docker exec -it my-project-nginx-app composer format
 | Category | Tool | Purpose |
 |----------|------|---------|
 | **💻 IDE** | [PhpStorm](https://www.jetbrains.com/phpstorm/) / [VS Code](https://code.visualstudio.com/) | Code editing |
-| **🗄️ Database** | [TablePlus](https://tableplus.com/) / [Sequel Pro](https://www.sequelpro.com/) | Database management |
+| **🗄️ Database** | [TablePlus](https://tableplus.com/) / [Dbeaver](https://dbeaver.io/) | Database management |
 | **🌐 API Testing** | [Postman](https://www.postman.com/) / [Insomnia](https://insomnia.rest/) | API development |
 | **📊 Git GUI** | [GitHub Desktop](https://desktop.github.com/) / [Sourcetree](https://www.sourcetreeapp.com/) | Version control |
 
